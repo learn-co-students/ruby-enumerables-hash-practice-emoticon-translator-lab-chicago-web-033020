@@ -5,7 +5,11 @@ def load_library(file_path)
   library = YAML.load_file(file_path)
   result = {"get_meaning" => {}, "get_emoticon" => {}}
   library.each do |meaning, emoticons|
+    #the keys inside the 'get_meaning' hash are the Japanese emoticons
+    #the emoticon keys inside the 'get_meaning' hash point to their meanings
   result["get_meaning"][emoticons[1]] = meaning
+  #the keys inside the 'get_emoticon' hash are the English emoticons
+  #the emoticon keys inside the 'get_emoticon' hash point to their Japanese equivalents
   result["get_emoticon"][emoticons[0]] = emoticons[1]
   end
   result
